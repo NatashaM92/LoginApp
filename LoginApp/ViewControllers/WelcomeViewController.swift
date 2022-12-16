@@ -10,8 +10,11 @@ import UIKit
 class WelcomeViewController: UIViewController {
     
     @IBOutlet var welcomeUserLabel: UILabel!
+    @IBOutlet var fotoUserImageView: UIImageView!
     
     var welcomeUser = ""
+    
+    private let natasha = User.getUser()
     
     private let primaryColor = UIColor(
         red: 210/255,
@@ -29,10 +32,10 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
-        welcomeUserLabel.text = "Welcome, \(welcomeUser)!"
+        welcomeUserLabel.text = "Welcome, \(natasha.person.name)!"
+        fotoUserImageView.image = UIImage(named: natasha.person.myFoto)
     }
 }
-
 
 extension UIView {
     func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
