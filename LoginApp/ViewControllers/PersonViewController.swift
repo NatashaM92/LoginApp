@@ -14,12 +14,20 @@ class PersonViewController: UIViewController {
     @IBOutlet var hobbyPersonLabel: UILabel!
     @IBOutlet var petPersonLabel: UILabel!
     
-    private let natasha = User.getUser()
+    var natasha: User!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let infoPersonVC = segue.destination as? InfoPersonViewController else { return }
+        infoPersonVC.infoPerson = natasha.person.info
+        infoPersonVC.fotoPet = natasha.person.fotoMyPet
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         namePersonLabel.text = natasha.person.name
         agePersonLabel.text = natasha.person.age.formatted()
         hobbyPersonLabel.text = natasha.person.hobby
+        petPersonLabel.text = natasha.person.pet.rawValue
     }
 }
+

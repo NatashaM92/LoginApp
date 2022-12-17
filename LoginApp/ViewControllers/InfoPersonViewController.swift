@@ -12,11 +12,14 @@ class InfoPersonViewController: UIViewController {
     @IBOutlet var fotoPetImage: UIImageView!
     @IBOutlet var InfoLabel: UILabel!
     
-    private let natasha = User.getUser()
+    var infoPerson = ""
+    var fotoPet = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fotoPetImage.image = UIImage(named: natasha.person.fotoMyPet)
-        InfoLabel.text = natasha.person.info
+        fotoPetImage.image = UIImage(named: fotoPet)
+        InfoLabel.text = infoPerson
     }
 }
+
+
